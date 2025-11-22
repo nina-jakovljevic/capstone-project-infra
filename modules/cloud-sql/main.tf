@@ -44,7 +44,7 @@ resource "google_sql_database_instance" "main" {
   name                = var.db_instance_name
   database_version    = "MYSQL_8_0"
   region              = var.region
-  deletion_protection = true
+  deletion_protection = false
 
   settings {
     tier = var.db_tier

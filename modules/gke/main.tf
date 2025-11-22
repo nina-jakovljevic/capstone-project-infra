@@ -29,9 +29,10 @@ resource "google_project_iam_member" "node_sa_artifact_registry" {
 # --- The GKE Cluster Resource ---
 # tfsec:ignore:google-gke-enforce-pod-security-policy
 resource "google_container_cluster" "primary" {
-  project  = var.project_id
-  name     = var.cluster_name
-  location = var.region # This makes it a Regional cluster (High Availability)
+  project             = var.project_id
+  name                = var.cluster_name
+  location            = var.region # This makes it a Regional cluster (High Availability)
+  deletion_protection = false
 
   node_config {
     metadata = {
